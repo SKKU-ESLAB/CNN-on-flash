@@ -42,12 +42,8 @@ add_compile_options(-std=c++14 -Wall ${CONFIG_FLAGS} -fopenmp -Wfatal-errors)
 #ACL Config
 set(ACL_ROOT [arm_compute_library_path])
 include_directories(include ${ACL_ROOT} ${ACL_ROOT}/include)
-link_libraries(arm_compute arm_compute_core pthread OpenCL)
+link_libraries(arm_compute arm_compute_core pthread)
 link_directories(${ACL_ROOT}/build)
-
-# Other config
-add_compile_options(${OPTIM_CXXFLAGS})
-link_libraries(aio streamline_annotate)
 
 # Generate library
 file(GLOB FHANDLES "src/file_handles/*.cpp")
