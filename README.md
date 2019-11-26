@@ -1,9 +1,9 @@
 # CNN-on-flash
-The goal of this project to run Convolutional Neural Network layers for flash-resident-matrices.
-Now gemm using ARM CPU is implemented.
+The goal of this project is to run Convolutional Neural Network layers for flash-resident-matrices.
+Now gemm using NEON for ARM CPU is implemented.
 
 ## References
-This project is implemented based on BLAS-on-flash and run using Arm Compute Library
+This project is implemented based on BLAS-on-flash and run using Arm Compute Library.
 * BLAS-on-flash  [https://github.com/microsoft/BLAS-on-flash][bof]
 * Arm Compute Library  [https://github.com/ARM-software/ComputeLibrary][acl]
 
@@ -38,8 +38,11 @@ gemm execution
 * `./exec.sh [A_row] [B_row] [B_col]`
 
 ## Example result
-Example case with _GEMM\_BLK\_SIZE_=512 and various memory budget
-Inference time and maximum memory usage is shown on following graph.  
+Example case with 
+* size of inputs and output matrices = 4096x4096 
+* _GEMM\_BLK\_SIZE_ = 512 
+* and various memory budget
+Inference time and maximum memory usage is shown on following graph.
 
 ![imagename](./image/512.png)
 
