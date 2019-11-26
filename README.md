@@ -37,11 +37,12 @@ gemm execution
 * `chmod +x gemm.sh`
 * `./exec.sh [A_row] [B_row] [B_col]`
 
-## Example result
+## Example experiment result
 Example case with 
 * size of inputs and output matrices = 4096x4096 
 * _GEMM\_BLK\_SIZE_ = 512 
 * and various memory budget
+* run on Odroid-XU4 having Exynos5422
 Inference time and maximum memory usage is shown on following graph.
 
 ![imagename](./image/512.png)
