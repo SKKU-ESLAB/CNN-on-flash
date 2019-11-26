@@ -191,10 +191,6 @@ namespace flash {
 
     static FBLAS_UINT n_added = 0;
     this->commit_size += buf_size(k.sinfo);
-    if (max_size < 3 * buf_size(k.sinfo)) {
-      printf("Required memory amount exceeds budget. Terminate.\n");
-      exit(0);
-    }
     if (this->max_commit_size < this->commit_size)
       max_commit_size = this->commit_size;
     GLOG_ASSERT(this->commit_size <= this->max_size,
@@ -401,6 +397,10 @@ namespace flash {
 
     // if cache is not full
     // NOTE :: C++ standard mandates short-circuit of `||` operator
+    if (ask_size*3 > max_size){
+      printf("Required memory amount exceeds budget. Terminate.\n");
+      exit(0);
+    }
     if (has_spare_mem_for(ask_size)) {
       GLOG_DEBUG("alloc-because has spare_mem");
       alloc_bufs(tsk);
