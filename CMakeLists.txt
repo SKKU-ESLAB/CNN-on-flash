@@ -16,14 +16,11 @@ add_definitions(-DN_IO_THR=${N_IO_THR}
                 -DN_COMPUTE_THR=${N_COMPUTE_THR}
                 -DPROGRAM_BUDGET=${PROGRAM_BUDGET}
                 -DMAX_SIMUL_REQS=${MAX_SIMUL_REQS}
-                -DMAX_STRIDES=${MAX_STRIDES}
                 -DMAX_EVENTS=${MAX_EVENTS}
                 -DSECTOR_LEN=${SECTOR_LEN}
                 -DIS_ALIGNED=${IS_ALIGNED}
                 -DGEMM_BLK_SIZE=${GEMM_BLK_SIZE}
-                -DOMP_CHUNK_SIZE=${OMP_CHUNK_SIZE}
                 -DMAX_NNZS=${MAX_NNZS}
-                -DMAP_BLK_SIZE=${MAP_BLK_SIZE}
                 -DOVERLAP_CHECK=${OVERLAP_CHECK}
 								-D_32BIT_MACHINE=1
                 )
