@@ -12,6 +12,16 @@ This project is implemented based on BLAS-on-flash
 * Arm Compute Library 19.02
   * built with neon option turned on
 
+## Setting options
+Set CMakeFiles options as you want.
+```
+vim CMakeFiles
+```
+* _PROGRAM\_BUDGET_  Memory budget of the gemm with byte size
+* _GEMM\_BLK\_SIZE_  The number of rows and cols of submatrices
+* _N\_IO\_THR_  The number of IO threads
+* _N\_COMPUTE\_THR_  The number of compute threads
+
 ## Build instructions
 * `git clone`
 * `vim CMakeLists.txt`
