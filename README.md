@@ -3,7 +3,7 @@ The goal of this project to run Convolutional Neural Network layers for flash-re
 Now gemm using ARM CPU is implemented.
 
 ## References
-This project is implemented based on BLAS-on-flash 
+This project is implemented based on BLAS-on-flash and run using Arm Compute Library
 * BLAS-on-flash  [https://github.com/microsoft/BLAS-on-flash][bof]
 * Arm Compute Library  [https://github.com/ARM-software/ComputeLibrary][acl]
 
@@ -37,6 +37,18 @@ gemm execution
 * `chmod +x gemm.sh`
 * `./exec.sh [A_row] [B_row] [B_col]`
 
+## Example result
+Example case with _GEMM\_BLK\_SIZE_=512 and various memory budget
+Inference time and maximum memory usage is shown on following graph.  
+
+![imagename](./image/512.png)
+
+More detailed explanation for method and results can be found in [BLAS-on-flash paper][bof] and [this paper][gemtile].
+
+## License
+CNN-on-flash is open-sourced software licensed under the MIT license.
+
 
 [bof]:https://github.com/microsoft/BLAS-on-flash
 [acl]:https://github.com/ARM-software/ComputeLibrary
+[gemtile]:http://nyx.skku.ac.kr/wp-content/uploads/2019/07/16-502.pdf
