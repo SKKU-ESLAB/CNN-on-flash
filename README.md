@@ -45,6 +45,10 @@ Inference time and maximum memory usage is shown on following graph.
 
 More detailed explanation for method and results can be found in [BLAS-on-flash paper][bof] and [this paper][gemtile].
 
+## License
+CNN-on-flash is open-sourced software licensed under the MIT license.
+
+
 [bof]:https://github.com/microsoft/BLAS-on-flash
 [acl]:https://github.com/ARM-software/ComputeLibrary
 [gemtile]:http://nyx.skku.ac.kr/wp-content/uploads/2019/07/16-502.pdf
