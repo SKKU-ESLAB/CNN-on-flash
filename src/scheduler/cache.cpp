@@ -25,10 +25,12 @@ namespace flash {
       : io_exec(io_exec), max_size(max_size) {
     this->real_size = 0;
     this->commit_size = 0;
+    this->max_commit_size = 0;
     this->single_use_discard = false;
   }
 
   Cache::~Cache() {
+    GLOG_DEBUG("max_commit_size:", this->max_commit_size);
     mutex_locker(this->cache_mut);
     // GLOG_DEBUG("checking if active_map is empty");
     assert_and_print(this->active_map);
@@ -189,6 +191,8 @@ namespace flash {
 
     static FBLAS_UINT n_added = 0;
     this->commit_size += buf_size(k.sinfo);
+    if (this->max_commit_size < this->commit_size)
+      max_commit_size = this->commit_size;
     GLOG_ASSERT(this->commit_size <= this->max_size,
                 "got commit_size=", commit_size, ", max_mem=", max_size);
     GLOG_DEBUG("COMMIT:", buf_size(k.sinfo),
@@ -460,7 +464,7 @@ namespace flash {
         const Key &k = it->first;
         Value &    v = it->second;
         if (!v.evicted) {
-          v.n_refs = 0; 
+          v.n_refs = 0;
           // buf goes into active AND NOT zero-ref to avoid being evicted again,
           // even though it's already promised to some tasks
           GLOG_ASSERT(!is_active(k), "trying to replace active buf");

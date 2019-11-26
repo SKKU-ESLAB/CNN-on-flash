@@ -106,6 +106,7 @@ namespace flash {
 
     // `promised`/`commit`-ed footprint
     FBLAS_UINT commit_size;
+    FBLAS_UINT max_commit_size;
 
     // max `actual` footprint
     const FBLAS_UINT max_size;
