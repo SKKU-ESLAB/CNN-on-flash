@@ -37,6 +37,11 @@ gemm execution
 * `chmod +x gemm.sh`
 * `./exec.sh [A_row] [B_row] [B_col]`
 
+## Example result
+Example case with _GEMM\_BLK\_SIZE_=512 and various memory budget
+Inference time and maximum memory usage is shown on following graph.  
+
+![imagename](./image/512.png)
 
 [bof]:https://github.com/microsoft/BLAS-on-flash
 [acl]:https://github.com/ARM-software/ComputeLibrary
