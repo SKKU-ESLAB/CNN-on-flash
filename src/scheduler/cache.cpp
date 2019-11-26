@@ -191,6 +191,10 @@ namespace flash {
 
     static FBLAS_UINT n_added = 0;
     this->commit_size += buf_size(k.sinfo);
+    if (max_size < 3 * buf_size(k.sinfo)) {
+      printf("Required memory amount exceeds budget. Terminate.\n");
+      exit(0);
+    }
     if (this->max_commit_size < this->commit_size)
       max_commit_size = this->commit_size;
     GLOG_ASSERT(this->commit_size <= this->max_size,
